@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Aprende a Programar</title>
+        <link rel="icon" type="image/x-icon" href="assets/Favicon.png" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            /* Estilos adicionales para el formulario */
+            .alert-success {
+                background-color: rgba(40, 167, 69, 0.2);
+                border-left: 4px solid #28a745;
+                padding: 2rem;
+                border-radius: 8px;
+                margin-top: 2rem;
+            }
+            
+            .btn-aventura {
+                background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+                color: white !important;
+                padding: 1rem 2rem;
+                font-size: 1.25rem;
+                border: none;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+                text-transform: uppercase;
+                font-weight: bold;
+                box-shadow: 0 4px 15px rgba(37, 117, 252, 0.3);
+            }
+            
+            .btn-aventura:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(37, 117, 252, 0.4);
+            }
+            
+            .is-invalid {
+                border-color: #dc3545 !important;
+            }
+            
+            .invalid-feedback {
+                color: #dc3545;
+                font-size: 0.875rem;
+                margin-top: 0.25rem;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img style="height: 100px" src="assets/img/LogoNuevo-Fondo.png" alt="..." /></a>
+                <a style="text-decoration: none;" href="#page-top"><p class="m-0 fw-bold color-principal">APRENDE A PROGRAMAR</p></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#ejemplo">Ruta</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Nuestro Equipo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                        <li><a class="btn btn-degradado-texto fw-bold" href="#contacto">¡Empieza Gratis!</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-heading text-uppercase">Descubre el mundo de la programación</div>
+                <div style="padding-bottom: 2%;" class="masthead-subheading">Empieza desde cero y conviértete en un experto </div>
+                <a class="btn btn-degradado-texto fw-bold mb-2 p-3" href="#contacto">EMPIEZA AHORA</a>
+            </div>
+        </header>
+        <section class="page-section bg-light" id="como-aprender">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">¿Cómo aprender a programar?</h2>
+                    <h3 class="section-subheading text-muted">Sigue estos pasos y conviértete en un programador desde cero.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4>1. Elige un Lenguaje de Programación</h4>
+                        <p class="text-muted">Si eres principiante, empieza con lenguajes amigables como <strong>Python</strong> o <strong>JavaScript</strong>. Ambos son fáciles de aprender y ampliamente utilizados en la industria.</p>
+
+                        <h4>2. Aprende los Fundamentos</h4>
+                        <p class="text-muted">Comprender conceptos básicos como variables, estructuras de control (if, loops), funciones y estructuras de datos (listas, diccionarios) es clave antes de avanzar a proyectos más complejos.</p>
+
+                        <h4>3. Practica con Proyectos</h4>
+                        <p class="text-muted">La mejor forma de aprender es creando. Comienza con proyectos pequeños como una calculadora, un generador de contraseñas o una página web sencilla.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>4. Usa Recursos Online</h4>
+                        <p class="text-muted">Existen muchas plataformas gratuitas para aprender a programar, como <strong>freeCodeCamp</strong>, <strong>Codecademy</strong> y <strong>MDN Web Docs</strong>. También puedes unirte a comunidades como Stack Overflow y GitHub.</p>
+
+                        <h4>5. Domina la Resolución de Problemas</h4>
+                        <p class="text-muted">Aprender a programar no solo es memorizar código, sino desarrollar lógica. Practica con ejercicios en plataformas como <strong>LeetCode</strong> o <strong>HackerRank</strong>.</p>
+
+                        <h4>6. Crea un Portafolio</h4>
+                        <p class="text-muted">Publica tus proyectos en <strong>GitHub</strong> o crea tu propio sitio web para mostrar tu progreso. Esto te ayudará a destacar al buscar oportunidades en el mundo de la programación.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a class="btn btn-degradado-texto fw-bold p-3 text-uppercase" href="#contacto">¡Empieza a Programar Hoy!</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="servicios">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Servicios</h2>
+                    <h3 class="section-subheading text-muted">Todo lo que necesitas para empezar a programar desde cero y avanzar como profesional.</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-stack-2x gradient-circle"></i>
+                            <i class="fas fa-code fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Cursos Interactivos</h4>
+                        <p class="text-muted">Aprende a programar con lecciones prácticas y ejercicios interactivos diseñados para todos los niveles.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-stack-2x gradient-circle"></i>
+                            <i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Proyectos Reales</h4>
+                        <p class="text-muted">Pon en práctica tus conocimientos desarrollando proyectos reales que te prepararán para el mundo laboral.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-stack-2x gradient-circle"></i>
+                            <i class="fas fa-users fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Comunidad y Soporte</h4>
+                        <p class="text-muted">Únete a una comunidad de estudiantes y expertos, donde recibirás apoyo y resolverás dudas en todo momento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section bg-light" id="ejemplo">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Ejemplo de Ruta de Aprendizaje</h2>
+                    <h3 class="section-subheading text-muted">Descubre cómo puedes aprender a programar paso a paso.</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img style="height: 100%;" class="rounded-circle img-fluid" src="assets/img/P3_1.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="color-principal">Día 1: Fundamentos de Programación</h4>
+                                <h6 class="subheading">Tu primer contacto con el código</h6>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Aprende los conceptos básicos como variables, estructuras de control y funciones para comenzar a programar desde cero.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img style="height: 100%;" class="rounded-circle img-fluid" src="assets/img/P3_2.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="color-principal">Día 2: Programación Orientada a Objetos</h4>
+                                <h6 class="subheading">Organiza tu código de manera eficiente</h6>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Descubre cómo utilizar clases y objetos para estructurar tu código de forma modular y reutilizable.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img style="height: 100%;" class="rounded-circle img-fluid" src="assets/img/P3_3.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="color-principal">Día 3: Desarrollo Web</h4>
+                                <h6 class="subheading">Construye tu primera página web</h6>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Aprende HTML, CSS y JavaScript para dar vida a sitios web interactivos y funcionales.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img style="height: 100%;" class="rounded-circle img-fluid" src="assets/img/P3_4.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="color-principal">Día 4: Introducción a Bases de Datos</h4>
+                                <h6 class="subheading">Almacena y gestiona información</h6>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Aprende a utilizar bases de datos SQL y NoSQL para manejar la información de tus aplicaciones.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="gradient-circle timeline-image">
+                            <h4 class="text-dark">
+                                ¡Empieza
+                                <br />
+                                Tu Camino
+                                <br />
+                                Hoy!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        <section class="page-section" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">¡Nuestro equipo!</h2>
+            <h3 class="section-subheading text-muted">Apasionados por enseñar y transformar el mundo con código.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/equipo/6.jpg" alt="..." />
+                    <h4>Said Velasquez</h4>
+                    <p class="text-muted">Diseñador UI/UX</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Pablo Monserrat Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Pablo Monserrat Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Pablo Monserrat LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/equipo/4.jpeg" alt="..." />
+                    <h4>Iván Araújo</h4>
+                    <p class="text-muted">Director Académico</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Iván Araújo Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Iván Araújo Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Iván Araújo LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/equipo/8.jpeg" alt="..." />
+                    <h4>Daniel Willson</h4>
+                    <p class="text-muted">Desarrollador Full Stack</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Daniel Willson Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Daniel Willson Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Daniel Willson LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/equipo/3.jpeg" alt="Javier Jiménez" />
+                    <h4>Javier Jiménez</h4>
+                    <p class="text-muted">Especialista en Bases de Datos</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Javier Jiménez Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Javier Jiménez Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Javier Jiménez LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/equipo/7.jpg" alt="..." />
+                    <h4>Alberto Salido</h4>
+                    <p class="text-muted">Experto en Inteligencia Artificial</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Alberto Salido Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Alberto Salido Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Alberto Salido LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/equipo/5.jpeg" alt="..." />
+                    <h4>Rafael García</h4>
+                    <p class="text-muted">Especialista en Educación Digital</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Rafael García Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Rafael García Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Rafael García LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Nuestro equipo está comprometido en hacer que aprender a programar sea accesible, práctico y emocionante. Con experiencia en desarrollo, inteligencia artificial y educación, te guiaremos en cada paso de tu aprendizaje.</p></div>
+        </div>
+    </div>
+</section>
+        <!-- Clients-->
+        <div class="py-5  bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/microsoft.svg" alt="..." aria-label="Microsoft Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg" alt="..." aria-label="Google Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg" alt="..." aria-label="Facebook Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/ibm.svg" alt="..." aria-label="IBM Logo" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span id="contacto"></span>
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Comienza tu aventura</h2>
+                    <h3 class="section-subheading text-muted">Regístrate para acceder al curso completo</h3>
+                </div>
+                <form id="contactForm">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" id="name" type="text" placeholder="Tu Nombre *" required />
+                                <div class="invalid-feedback">Es necesario un nombre.</div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="email" type="email" placeholder="Tu Correo Electrónico *" required />
+                                <div class="invalid-feedback">Es necesario un correo electrónico válido.</div>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <input class="form-control" id="phone" type="tel" placeholder="Tu Teléfono *" required />
+                                <div class="invalid-feedback">Es necesario un número de teléfono.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <textarea class="form-control" id="message" placeholder="¿Por qué quieres aprender a programar? *" required></textarea>
+                                <div class="invalid-feedback">Por favor dinos tus motivaciones.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn gradient-circle btn-xl text-uppercase" id="submitButton" type="submit">Enviar Registro</button>
+                    </div>
+                </form>
+                <!-- Mensaje de éxito (oculto inicialmente) -->
+                <div id="successMessage" class="text-center mt-4" style="display: none;">
+                    <div class="alert alert-success">
+                        <h4 style="color: white;">¡Gracias por registrarte!</h4>
+                        <p style="color: white;">Estás listo para comenzar tu viaje en la programación.</p>
+                        <a href="index_2.html" class="btn btn-aventura mt-3">¡Comienza tu aventura ahora!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Aprende a Programar 2025</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Politica de Privacidad</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terminos de uso</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

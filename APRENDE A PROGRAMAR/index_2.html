@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APRENDE A PROGRAMAR</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Fondo tecnológico -->
+    <div class="fondo-tecnologico"></div>
+
+    <header>
+        <div class="logo">
+            <h1>APRENDE A PROGRAMAR</h1>
+            <p>Domina los lenguajes más demandados</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#fundamentos" class="nav-link">FUNDAMENTOS</a></li>
+            <li><a href="#poo" class="nav-link">POO</a></li>
+            <li><a href="#web" class="nav-link">DESARROLLO WEB</a></li>
+            <li><a href="#bd" class="nav-link">BASES DE DATOS</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="fundamentos" class="seccion-destacada">
+            <h2><i class="fas fa-code"></i> FUNDAMENTOS DE PROGRAMACIÓN</h2>
+            <p class="subtitulo">Elige tu lenguaje para comenzar:</p>
+            
+            <div class="lenguajes">
+                <div class="lenguaje-card" onclick="mostrarDetalle('python')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
+                    <h3>PYTHON</h3>
+                    <p>Sintaxis clara y versátil</p>
+                    <div class="nivel nivel-principiante">Principiante</div>
+                </div>
+                
+                <div class="lenguaje-card" onclick="mostrarDetalle('java')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Java">
+                    <h3>JAVA</h3>
+                    <p>Orientado a objetos</p>
+                    <div class="nivel nivel-intermedio">Intermedio</div>
+                </div>
+                
+                <div class="lenguaje-card" onclick="mostrarDetalle('c')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" alt="C">
+                    <h3>C</h3>
+                    <p>Base de la programación</p>
+                    <div class="nivel nivel-avanzado">Avanzado</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="detalle-lenguaje" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" onclick="cerrarModal()">&times;</span>
+                <div id="contenido-modal"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="redes-sociales">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <p>© 2023 APRENDE A PROGRAMAR | Diseñado para estudiantes</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

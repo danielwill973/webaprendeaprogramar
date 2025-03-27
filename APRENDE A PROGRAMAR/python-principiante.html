@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Python - Principiante</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-oscuro: #0a192f;
+            --azul-neon: #00d1ff;
+            --azul-claro: #1e88e5;
+            --negro: #000000;
+            --blanco: #ffffff;
+            --gris-tech: #1e293b;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--blanco);
+            background-color: var(--negro);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .fondo-tecnologico {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            z-index: -1;
+        }
+
+        header {
+            background-color: rgba(10, 25, 47, 0.95);
+            padding: 1.5rem 0;
+            border-bottom: 2px solid var(--azul-neon);
+            box-shadow: 0 4px 12px rgba(0, 209, 255, 0.1);
+        }
+
+        .logo {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--azul-neon);
+            text-shadow: 0 0 10px rgba(0, 209, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo p {
+            font-size: 1.2rem;
+            color: var(--blanco);
+            margin: 0.5rem 0 0;
+        }
+
+        .contenedor-principal {
+            display: flex;
+            flex: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Menú lateral mejorado */
+        .menu-lateral {
+            width: 280px;
+            background-color: rgba(10, 25, 47, 0.9);
+            padding: 2rem 1rem;
+            border-right: 1px solid var(--azul-neon);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .menu-lateral h3 {
+            color: var(--azul-neon);
+            font-size: 1.3rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dashed var(--azul-neon);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-lateral ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-lateral li {
+            margin-bottom: 0.8rem;
+        }
+
+        .menu-lateral a {
+            color: var(--blanco);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .menu-lateral a:hover, .menu-lateral a.active {
+            background-color: rgba(0, 209, 255, 0.15);
+            color: var(--azul-neon);
+            transform: translateX(5px);
+        }
+
+        .menu-lateral i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Contenido principal mejorado */
+        .contenido-tutorial {
+            flex: 1;
+            padding: 2rem 3rem;
+            background-color: rgba(10, 25, 47, 0.8);
+        }
+
+        .seccion {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px dashed var(--azul-neon);
+            scroll-margin-top: 20px;
+        }
+
+        .seccion h2 {
+            color: var(--azul-neon);
+            font-size: 2rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--azul-neon);
+        }
+
+        .seccion h3 {
+            color: var(--azul-claro);
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .seccion h3 i {
+            color: var(--azul-neon);
+            font-size: 1.2rem;
+        }
+
+        .bloque-codigo {
+            background-color: #1e1e1e;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid var(--azul-neon);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .bloque-codigo pre {
+            margin: 0;
+        }
+
+        .bloque-codigo code {
+            display: block;
+            line-height: 1.5;
+        }
+
+        .bloque-codigo::before {
+            content: 'Código Python';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background-color: var(--azul-oscuro);
+            color: var(--azul-neon);
+            padding: 0 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .imagen-codigo {
+            max-width: 100%;
+            border: 1px solid var(--gris-tech);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .imagen-codigo:hover {
+            transform: scale(1.02);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            margin: 2.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--gris-tech);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Ejercicios mejorados */
+        .ejercicio {
+            background-color: rgba(30, 41, 59, 0.6);
+            padding: 1.8rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--azul-neon);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .ejercicio h3 {
+            margin-top: 0;
+            color: var(--blanco);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .ejercicio h3 i {
+            color: var(--azul-neon);
+        }
+
+        .ejercicio p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .btn {
+            background-color: var(--azul-neon);
+            color: var(--azul-oscuro);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 209, 255, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--blanco);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 209, 255, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .solucion {
+            display: none;
+            margin-top: 1.5rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tabla de cursos mejorada */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gris-tech);
+        }
+
+        th {
+            background-color: rgba(0, 209, 255, 0.1);
+            color: var(--azul-neon);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr {
+            transition: background-color 0.3s;
+        }
+
+        tr:hover {
+            background-color: rgba(0, 209, 255, 0.05);
+        }
+
+        /* Formulario mejorado */
+        form {
+            background-color: rgba(30, 41, 59, 0.6);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--azul-neon);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--azul-neon);
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--gris-tech);
+            border: 1px solid var(--azul-oscuro);
+            color: var(--blanco);
+            border-radius: 6px;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--azul-neon);
+            box-shadow: 0 0 0 2px rgba(0, 209, 255, 0.2);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background-color: var(--azul-neon);
+            color: var(--azul-oscuro);
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--blanco);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 209, 255, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--azul-oscuro);
+            border-top: 1px solid var(--azul-neon);
+            margin-top: auto;
+        }
+
+        .footer-link {
+            color: var(--azul-neon);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: var(--blanco);
+            text-decoration: underline;
+        }
+
+        /* Efectos de scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .menu-lateral {
+                width: 240px;
+                padding: 1.5rem 0.8rem;
+            }
+            
+            .contenido-tutorial {
+                padding: 1.5rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contenedor-principal {
+                flex-direction: column;
+            }
+            
+            .menu-lateral {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 1rem;
+                border-right: none;
+                border-bottom: 1px solid var(--azul-neon);
+            }
+            
+            .menu-lateral ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .menu-lateral li {
+                margin-bottom: 0;
+            }
+            
+            .menu-lateral a {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+            
+            .contenido-tutorial {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fondo-tecnologico"></div>
+
+    <header>
+        <div class="logo">
+            <h1><i class="fab fa-python"></i> Python para Principiantes</h1>
+            <p>Aprende programación desde cero con ejemplos prácticos</p>
+        </div>
+    </header>
+
+    <div class="contenedor-principal">
+        <!-- Menú lateral fijo -->
+        <nav class="menu-lateral">
+            <h3><i class="fas fa-book-open"></i> Contenido</h3>
+            <ul>
+                <li><a href="#que-es" class="active"><i class="fas fa-question-circle"></i> ¿Qué es Python?</a></li>
+                <li><a href="#instalacion"><i class="fas fa-download"></i> Instalación</a></li>
+                <li><a href="#sintaxis"><i class="fas fa-code"></i> Sintaxis Básica</a></li>
+                <li><a href="#variables"><i class="fas fa-tag"></i> Variables</a></li>
+                <li><a href="#condicionales"><i class="fas fa-code-branch"></i> Condicionales</a></li>
+                <li><a href="#bucles"><i class="fas fa-redo"></i> Bucles</a></li>
+                <li><a href="#funciones"><i class="fas fa-cube"></i> Funciones</a></li>
+                <li><a href="#listas"><i class="fas fa-list"></i> Listas</a></li>
+                <li><a href="#ejercicios"><i class="fas fa-pencil-alt"></i> Ejercicios</a></li>
+                <li><a href="#proyectos"><i class="fas fa-project-diagram"></i> Mini-Proyectos</a></li>
+                <li><a href="#cursos"><i class="fas fa-calendar-alt"></i> Cursos</a></li>
+                <li><a href="#valoracion"><i class="fas fa-star"></i> Valoración</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="contenido-tutorial">
+            <!-- Sección: ¿Qué es Python? -->
+            <section id="que-es" class="seccion">
+                <h2><i class="fas fa-question-circle"></i> ¿Qué es Python?</h2>
+                <p>Python es un lenguaje de programación <strong>interpretado</strong>, <strong>de alto nivel</strong> y <strong>multipropósito</strong>, creado por Guido van Rossum en 1991. Es uno de los lenguajes más populares actualmente gracias a su sintaxis clara y versatilidad.</p>
+                
+                <h3><i class="fas fa-check-circle"></i> Características principales:</h3>
+                <ul>
+                    <li><strong>Sintaxis legible:</strong> Similar al inglés, con indentación obligatoria</li>
+                    <li><strong>Multiplataforma:</strong> Funciona en Windows, macOS y Linux</li>
+                    <li><strong>Tipado dinámico:</strong> No necesitas declarar tipos de variables</li>
+                    <li><strong>Gran ecosistema:</strong> Más de 300,000 librerías disponibles</li>
+                    <li><strong>Comunidad activa:</strong> Una de las comunidades más grandes del mundo</li>
+                </ul>
+                
+                <h3><i class="fas fa-lightbulb"></i> ¿Para qué se usa Python?</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background-color: rgba(0, 209, 255, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--azul-neon);">
+                        <h4 style="margin-top: 0; color: var(--azul-neon);"><i class="fas fa-globe"></i> Desarrollo Web</h4>
+                        <p>Con frameworks como Django y Flask</p>
+                    </div>
+                    <div style="background-color: rgba(0, 209, 255, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--azul-neon);">
+                        <h4 style="margin-top: 0; color: var(--azul-neon);"><i class="fas fa-brain"></i> Inteligencia Artificial</h4>
+                        <p>Librerías como TensorFlow y PyTorch</p>
+                    </div>
+                    <div style="background-color: rgba(0, 209, 255, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--azul-neon);">
+                        <h4 style="margin-top: 0; color: var(--azul-neon);"><i class="fas fa-chart-line"></i> Análisis de Datos</h4>
+                        <p>Pandas, NumPy y Matplotlib</p>
+                    </div>
+                    <div style="background-color: rgba(0, 209, 255, 0.1); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--azul-neon);">
+                        <h4 style="margin-top: 0; color: var(--azul-neon);"><i class="fas fa-robot"></i> Automatización</h4>
+                        <p>Scripts para automatizar tareas</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Instalación -->
+            <section id="instalacion" class="seccion">
+                <h2><i class="fas fa-download"></i> Instalación de Python</h2>
+                <p>Para comenzar a programar en Python, sigue estos pasos:</p>
+                
+                <h3><i class="fab fa-windows"></i> Windows/macOS</h3>
+                <ol>
+                    <li>Descarga la última versión de Python desde <a href="https://www.python.org/downloads/" target="_blank" style="color: var(--azul-neon); font-weight: bold;">python.org</a></li>
+                    <li>Ejecuta el instalador</li>
+                    <li>Marca la opción <strong>"Add Python to PATH"</strong> (importante)</li>
+                    <li>Haz clic en <strong>"Install Now"</strong></li>
+                    <li>Verifica la instalación abriendo la terminal y escribiendo <code>python --version</code></li>
+                </ol>
+                
+                <img src="https://www.freecodecamp.org/news/content/images/2020/06/install-python.png" alt="Instalación Python" class="imagen-codigo" style="max-width: 600px;">
+                
+                <h3><i class="fab fa-linux"></i> Linux (Ubuntu/Debian)</h3>
+                <div class="bloque-codigo">
+                    <pre><code># Actualizar paquetes
+sudo apt update
+
+# Instalar Python 3
+sudo apt install python3
+
+# Verificar versión
+python3 --version</code></pre>
+                </div>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/YYXdXT2l-Gg" title="Instalación Python" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <!-- Sección: Sintaxis Básica -->
+            <section id="sintaxis" class="seccion">
+                <h2><i class="fas fa-code"></i> Sintaxis Básica</h2>
+                <p>Python se caracteriza por su sintaxis clara y legible. Aquí los fundamentos:</p>
+                
+                <h3><i class="fas fa-terminal"></i> Hola Mundo</h3>
+                <div class="bloque-codigo">
+                    <pre><code># Esto es un comentario
+print("¡Hola Mundo!")  # Imprime texto en consola</code></pre>
+                </div>
+                
+                <h3><i class="fas fa-indent"></i> Indentación</h3>
+                <p>Python usa indentación (espacios/tabs) para definir bloques de código:</p>
+                <div class="bloque-codigo">
+                    <pre><code>if 5 > 2:
+    print("Cinco es mayor que dos")  # 4 espacios de indentación
+    print("Esto está dentro del if")
+    
+print("Esto está fuera del if")</code></pre>
+                </div>
+                
+                <h3><i class="fas fa-comment"></i> Comentarios</h3>
+                <div class="bloque-codigo">
+                    <pre><code># Esto es un comentario de una línea
+
+"""
+Este es un comentario
+multilínea (docstring)
+"""
+
+print("Hola")  # Comentario después de código</code></pre>
+                </div>
+            </section>
+
+            <!-- Sección: Variables -->
+            <section id="variables" class="seccion">
+                <h2><i class="fas fa-tag"></i> Variables y Tipos de Datos</h2>
+                <p>En Python no necesitas declarar el tipo de variable:</p>
+                
+                <div class="bloque-codigo">
+                    <pre><code># Ejemplos de variables
+nombre = "María"     # String (texto)
+edad = 28            # Entero (int)
+altura = 1.68        # Decimal (float)
+es_estudiante = True # Booleano (True/False)</code></pre>
+                </div>
+                
+                <h3><i class="fas fa-calculator"></i> Operaciones básicas</h3>
+                <div class="bloque-codigo">
+                    <pre><code>a = 10
+b = 3
+
+suma = a + b       # 13
+resta = a - b      # 7
+multiplicacion = a * b  # 30
+division = a / b   # 3.333...
+division_entera = a // b  # 3
+modulo = a % b     # 1 (resto de división)
+potencia = a ** b  # 1000</code></pre>
+                </div>
+                
+                <h3><i class="fas fa-exchange-alt"></i> Conversión de tipos</h3>
+                <div class="bloque-codigo">
+                    <pre><code># Convertir a string
+numero = 42
+texto = str(numero)  # "42"
+
+# Convertir a entero
+texto = "123"
+numero = int(texto)  # 123
+
+# Convertir a float
+texto = "3.14"
+decimal = float(texto)  # 3.14</code></pre>
+                </div>
+            </section>
+
+            <!-- Sección: Condicionales -->
+            <section id="condicionales" class="seccion">
+                <h2><i class="fas fa-code-branch"></i> Condicionales</h2>
+                <p>Estructuras para controlar el flujo del programa:</p>
+                
+                <h3><i class="fas fa-check"></i> if simple</h3>
+                <div class="bloque-codigo">
+                    <pre><code>edad = 18
+if edad >= 18:
+    print("Eres mayor de edad")</code></pre>
+                </div>
+                
+                <h3><i class="fas fa-check-double"></i> if-else</h3>
+                <div class="bloque-codigo">
+                    <pre><code>temperatura = 25
+if temperatura > 30:
+    print("Hace calor")
+else:
+    print("Temperatura normal")</code></pre>
+                </div>
+                
+                <h3><i class="fas fa-project-diagram"></i> if-elif-else</h3>
+                <div class="bloque-codigo">
+                    <pre><code>puntaje = 85
+if puntaje >= 90:
+    print("Excelente")
+elif puntaje >= 70:
+    print("Bueno")
+else:
+    print("Necesitas mejorar")</code></pre>
+                </div>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/DZwmZ8Usvnk" title="Condicionales Python" allowfullscreen></iframe>
+                </div>
+                
+                <h3><i class="fas fa-clipboard-check"></i> Operadores de comparación</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Significado</th>
+                            <th>Ejemplo</th>
+                        </tr>
+                        <tr>
+                            <td>==</td>
+                            <td>Igual a</td>
+                            <td>5 == 5 → True</td>
+                        </tr>
+                        <tr>
+                            <td>!=</td>
+                            <td>Diferente de</td>
+                            <td>5 != 3 → True</td>
+                        </tr>
+                        <tr>
+                            <td>></td>
+                            <td>Mayor que</td>
+                            <td>5 > 3 → True</td>
+                        </tr>
+                        <tr>
+                            <td><</td>
+                            <td>Menor que</td>
+                            <td>5 < 3 → False</td>
+                        </tr>
+                        <tr>
+                            <td>>=</td>
+                            <td>Mayor o igual</td>
+                            <td>5 >= 5 → True</td>
+                        </tr>
+                        <tr>
+                            <td><=</td>
+                            <td>Menor o igual</td>
+                            <td>5 <= 3 → False</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sección: Ejercicios -->
+            <section id="ejercicios" class="seccion">
+                <h2><i class="fas fa-pencil-alt"></i> Ejercicios Prácticos</h2>
+                <p>Practica lo aprendido con estos ejercicios:</p>
+                
+                <div class="ejercicio">
+                    <h3><i class="fas fa-calculator"></i> Ejercicio 1: Calculadora básica</h3>
+                    <p>Crea un programa que pida dos números al usuario y muestre:</p>
+                    <ul>
+                        <li>La suma</li>
+                        <li>La resta</li>
+                        <li>La multiplicación</li>
+                        <li>La división</li>
+                    </ul>
+                    <button class="btn" onclick="mostrarSolucion('solucion1')"><i class="fas fa-eye"></i> Mostrar solución</button>
+                    <div id="solucion1" class="solucion">
+                        <div class="bloque-codigo">
+                            <pre><code>num1 = float(input("Ingresa el primer número: "))
+num2 = float(input("Ingresa el segundo número: "))
+
+print(f"Suma: {num1 + num2}")
+print(f"Resta: {num1 - num2}")
+print(f"Multiplicación: {num1 * num2}")
+print(f"División: {num1 / num2}")</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ejercicio">
+                    <h3><i class="fas fa-user"></i> Ejercicio 2: Verificador de edad</h3>
+                    <p>Crea un programa que:</p>
+                    <ul>
+                        <li>Pida la edad al usuario</li>
+                        <li>Si es mayor o igual a 18, mostrar "Puedes votar"</li>
+                        <li>Si es mayor o igual a 16, mostrar "Puedes votar en algunas elecciones"</li>
+                        <li>Si es menor, mostrar "No puedes votar"</li>
+                    </ul>
+                    <button class="btn" onclick="mostrarSolucion('solucion2')"><i class="fas fa-eye"></i> Mostrar solución</button>
+                    <div id="solucion2" class="solucion">
+                        <div class="bloque-codigo">
+                            <pre><code>edad = int(input("Ingresa tu edad: "))
+
+if edad >= 18:
+    print("Puedes votar")
+elif edad >= 16:
+    print("Puedes votar en algunas elecciones")
+else:
+    print("No puedes votar")</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ejercicio">
+                    <h3><i class="fas fa-temperature-high"></i> Ejercicio 3: Clasificador de temperatura</h3>
+                    <p>Crea un programa que clasifique la temperatura en:</p>
+                    <ul>
+                        <li>Frío: menos de 10°C</li>
+                        <li>Templado: 10-24°C</li>
+                        <li>Calor: 25°C o más</li>
+                    </ul>
+                    <button class="btn" onclick="mostrarSolucion('solucion3')"><i class="fas fa-eye"></i> Mostrar solución</button>
+                    <div id="solucion3" class="solucion">
+                        <div class="bloque-codigo">
+                            <pre><code>temperatura = float(input("Ingresa la temperatura: "))
+
+if temperatura < 10:
+    print("Hace frío")
+elif 10 <= temperatura <= 24:
+    print("Temperatura templada")
+else:
+    print("Hace calor")</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Cursos -->
+            <section id="cursos" class="seccion">
+                <h2><i class="fas fa-calendar-alt"></i> Cursos Disponibles</h2>
+                <p>Amplía tus conocimientos con nuestros cursos:</p>
+                
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Curso</th>
+                                <th>Horario</th>
+                                <th>Duración</th>
+                                <th>Precio</th>
+                                <th>Inscripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Python Básico</td>
+                                <td>Lunes y Miércoles 18:00-20:00</td>
+                                <td>4 semanas</td>
+                                <td>15€</td>
+                                <td><button class="btn" onclick="inscribirse('Python Básico')"><i class="fas fa-user-plus"></i> Inscribirse</button></td>
+                            </tr>
+                            <tr>
+                                <td>Python Intermedio</td>
+                                <td>Martes y Jueves 17:00-19:00</td>
+                                <td>6 semanas</td>
+                                <td>45€</td>
+                                <td><button class="btn" onclick="inscribirse('Python Intermedio')"><i class="fas fa-user-plus"></i> Inscribirse</button></td>
+                            </tr>
+                            <tr>
+                                <td>Python para Análisis de Datos</td>
+                                <td>Sábados 10:00-14:00</td>
+                                <td>8 semanas</td>
+                                <td>99€</td>
+                                <td><button class="btn" onclick="inscribirse('Python para Análisis de Datos')"><i class="fas fa-user-plus"></i> Inscribirse</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sección: Valoración -->
+            <section id="valoracion" class="seccion">
+                <h2><i class="fas fa-star"></i> Danos tu opinión</h2>
+                <p>Ayúdanos a mejorar con tus comentarios:</p>
+                
+                <form id="form-valoracion">
+                    <div class="form-group">
+                        <label for="nombre"><i class="fas fa-user"></i> Nombre:</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="valoracion"><i class="fas fa-star"></i> Valoración (1-5):</label>
+                        <select id="valoracion" required>
+                            <option value="">Selecciona...</option>
+                            <option value="5">⭐⭐⭐⭐⭐ (Excelente)</option>
+                            <option value="4">⭐⭐⭐⭐ (Muy Bueno)</option>
+                            <option value="3">⭐⭐⭐ (Bueno)</option>
+                            <option value="2">⭐⭐ (Regular)</option>
+                            <option value="1">⭐ (Malo)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comentario"><i class="fas fa-comment"></i> Comentario:</label>
+                        <textarea id="comentario" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar Valoración</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2023 Aprende a Programar | <a href="index.html" class="footer-link"><i class="fas fa-arrow-left"></i> Volver a la página principal</a></p>
+    </footer>
+
+    <script>
+        // Mostrar/ocultar soluciones
+        function mostrarSolucion(id) {
+            const solucion = document.getElementById(id);
+            solucion.style.display = solucion.style.display === 'none' ? 'block' : 'none';
+            
+            // Actualizar texto del botón
+            const boton = solucion.previousElementSibling;
+            if (solucion.style.display === 'block') {
+                boton.innerHTML = '<i class="fas fa-eye-slash"></i> Ocultar solución';
+            } else {
+                boton.innerHTML = '<i class="fas fa-eye"></i> Mostrar solución';
+            }
+        }
+
+        // Inscripción a cursos
+        function inscribirse(curso) {
+            alert(`¡Gracias por tu interés en el curso "${curso}"!\nTe enviaremos más información al correo.`);
+        }
+
+        // Manejar el formulario
+        document.getElementById('form-valoracion').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu valoración! Tu feedback nos ayuda a mejorar.');
+            this.reset();
+        });
+
+        // Resaltar elemento activo en menú lateral
+        document.querySelectorAll('.menu-lateral a').forEach(enlace => {
+            enlace.addEventListener('click', function() {
+                document.querySelectorAll('.menu-lateral a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Detectar scroll para resaltar sección activa
+        window.addEventListener('scroll', function() {
+            const secciones = document.querySelectorAll('.seccion');
+            let seccionActual = '';
+            
+            secciones.forEach(seccion => {
+                const rect = seccion.getBoundingClientRect();
+                if (rect.top <= 150) {
+                    seccionActual = seccion.id;
+                }
+            });
+            
+            document.querySelectorAll('.menu-lateral a').forEach(enlace => {
+                enlace.classList.remove('active');
+                if (enlace.getAttribute('href') === `#${seccionActual}`) {
+                    enlace.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
